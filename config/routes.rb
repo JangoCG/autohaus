@@ -16,6 +16,7 @@ Rails.application.routes.draw do
 
   get "impressum", to: "pages#impressum", as: :impressum
   get "datenschutz", to: "pages#datenschutz", as: :datenschutz
+  get "fahrzeuge", to: "pages#fahrzeuge", as: :fahrzeuge
 
   # Double-Opt-In Waitlist
   post "waitlist", to: "waitlist#create", as: :waitlist

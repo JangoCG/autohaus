@@ -9,4 +9,7 @@ class PagesController < ApplicationController
 
   def datenschutz
   end
+
+  def fahrzeuge
+  end
 end

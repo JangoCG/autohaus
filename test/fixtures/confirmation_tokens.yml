@@ -1,0 +1,20 @@
+# Token for unconfirmed entry
+unconfirmed_token:
+  waitlist_entry: unconfirmed
+  code: "ABCD-EFGH-IJKL"
+  expires_at: <%= 24.hours.from_now %>
+  redeemed_at: null
+
+# Token for confirmed entry (redeemed)
+confirmed_token:
+  waitlist_entry: confirmed
+  code: "MNOP-QRST-UVWX"
+  expires_at: <%= 1.day.ago %>
+  redeemed_at: <%= 1.day.ago %>
+
+# Expired token
+expired_token:
+  waitlist_entry: expired_token
+  code: "YZ12-3456-7890"
+  expires_at: <%= 1.hour.ago %>
+  redeemed_at: null

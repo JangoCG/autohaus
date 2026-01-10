@@ -1,0 +1,29 @@
+# Unconfirmed entry with valid token
+unconfirmed:
+  email: unconfirmed@example.com
+  signup_ip: 192.168.1.1
+  signup_user_agent: Mozilla/5.0 Test Browser
+  consent_text: Mit der Anmeldung erkläre ich mich einverstanden, über Neuigkeiten zu GoAuftrag per E-Mail informiert zu werden. Ich kann mich jederzeit abmelden.
+  confirmed_at: null
+  confirmed_ip: null
+  confirmed_user_agent: null
+
+# Confirmed entry
+confirmed:
+  email: confirmed@example.com
+  signup_ip: 192.168.1.2
+  signup_user_agent: Mozilla/5.0 Test Browser
+  consent_text: Mit der Anmeldung erkläre ich mich einverstanden, über Neuigkeiten zu GoAuftrag per E-Mail informiert zu werden. Ich kann mich jederzeit abmelden.
+  confirmed_at: <%= 1.day.ago %>
+  confirmed_ip: 192.168.1.3
+  confirmed_user_agent: Mozilla/5.0 Confirmed Browser
+
+# Entry with expired token
+expired_token:
+  email: expired@example.com
+  signup_ip: 192.168.1.4
+  signup_user_agent: Mozilla/5.0 Test Browser
+  consent_text: Mit der Anmeldung erkläre ich mich einverstanden, über Neuigkeiten zu GoAuftrag per E-Mail informiert zu werden. Ich kann mich jederzeit abmelden.
+  confirmed_at: null
+  confirmed_ip: null
+  confirmed_user_agent: null

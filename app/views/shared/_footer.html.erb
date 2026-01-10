@@ -1,0 +1,38 @@
+<footer class="bg-gray-900">
+  <div class="mx-auto max-w-7xl px-6 py-16 sm:py-24 lg:px-8">
+    <div class="xl:grid xl:grid-cols-3 xl:gap-8">
+      <!-- Logo and description -->
+      <div class="space-y-8">
+        <%= render "shared/company_logo", dark: true %>
+        <p class="text-sm/6 text-gray-300">
+          Website und Buchungssoftware für lokale Dienstleister.
+        </p>
+      </div>
+
+      <!-- Links -->
+      <div class="mt-16 grid grid-cols-2 gap-8 xl:col-span-2 xl:mt-0">
+        <div>
+          <h3 class="text-sm/6 font-semibold text-white">Navigation</h3>
+          <ul role="list" class="mt-6 space-y-4">
+            <li><a href="#features" class="text-sm/6 text-gray-400 hover:text-white">Funktionen</a></li>
+            <li><a href="#industries" class="text-sm/6 text-gray-400 hover:text-white">Branchen</a></li>
+            <li><a href="#pricing" class="text-sm/6 text-gray-400 hover:text-white">Preise</a></li>
+            <li><a href="#waitlist-form" class="text-sm/6 text-gray-400 hover:text-white">Warteliste</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="text-sm/6 font-semibold text-white">Rechtliches</h3>
+          <ul role="list" class="mt-6 space-y-4">
+            <li><%= link_to "Impressum", impressum_path, class: "text-sm/6 text-gray-400 hover:text-white" %></li>
+            <li><%= link_to "Datenschutz", datenschutz_path, class: "text-sm/6 text-gray-400 hover:text-white" %></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bottom section -->
+    <div class="mt-16 border-t border-white/10 pt-8 sm:mt-20 lg:mt-24">
+      <p class="text-sm/6 text-gray-400">GoAuftrag</p>
+    </div>
+  </div>
+</footer>

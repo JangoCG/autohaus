@@ -1,0 +1,86 @@
+<div class="max-w-4xl mx-auto py-8 px-4">
+  <h1 class="text-2xl font-bold mb-8">Waitlist Admin</h1>
+
+  <div class="grid grid-cols-3 gap-4 mb-8">
+    <div class="bg-white rounded-lg shadow p-6">
+      <div class="text-3xl font-bold"><%= @total %></div>
+      <div class="text-gray-600">Gesamt</div>
+    </div>
+    <div class="bg-green-50 rounded-lg shadow p-6">
+      <div class="text-3xl font-bold text-green-700"><%= @confirmed %></div>
+      <div class="text-green-600">Bestätigt</div>
+    </div>
+    <div class="bg-yellow-50 rounded-lg shadow p-6">
+      <div class="text-3xl font-bold text-yellow-700"><%= @unconfirmed %></div>
+      <div class="text-yellow-600">Unbestätigt</div>
+    </div>
+  </div>
+
+  <div class="grid grid-cols-2 gap-4 mb-8">
+    <div class="bg-gray-50 rounded-lg p-4">
+      <div class="text-xl font-semibold"><%= @last_24_hours %></div>
+      <div class="text-gray-600 text-sm">Letzte 24 Stunden</div>
+    </div>
+    <div class="bg-gray-50 rounded-lg p-4">
+      <div class="text-xl font-semibold"><%= @last_7_days %></div>
+      <div class="text-gray-600 text-sm">Letzte 7 Tage</div>
+    </div>
+  </div>
+
+  <div class="mb-8">
+    <h2 class="text-lg font-semibold mb-4">Zuletzt bestätigt</h2>
+    <div class="bg-white rounded-lg shadow overflow-hidden">
+      <table class="min-w-full divide-y divide-gray-200">
+        <thead class="bg-gray-50">
+          <tr>
+            <th class="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase">E-Mail</th>
+            <th class="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase">Bestätigt am</th>
+          </tr>
+        </thead>
+        <tbody class="divide-y divide-gray-200">
+          <% @recent_confirmed.each do |entry| %>
+            <tr>
+              <td class="px-4 py-2 text-sm"><%= entry.email %></td>
+              <td class="px-4 py-2 text-sm text-gray-500"><%= entry.confirmed_at.strftime("%d.%m.%Y %H:%M") %></td>
+            </tr>
+          <% end %>
+          <% if @recent_confirmed.empty? %>
+            <tr>
+              <td colspan="2" class="px-4 py-4 text-sm text-gray-500 text-center">Noch keine Bestätigungen</td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div>
+    <h2 class="text-lg font-semibold mb-4">Neueste Anmeldungen</h2>
+    <div class="bg-white rounded-lg shadow overflow-hidden">
+      <table class="min-w-full divide-y divide-gray-200">
+        <thead class="bg-gray-50">
+          <tr>
+            <th class="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase">E-Mail</th>
+            <th class="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase">Angemeldet</th>
+            <th class="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase">Status</th>
+          </tr>
+        </thead>
+        <tbody class="divide-y divide-gray-200">
+          <% @recent_entries.each do |entry| %>
+            <tr>
+              <td class="px-4 py-2 text-sm"><%= entry.email %></td>
+              <td class="px-4 py-2 text-sm text-gray-500"><%= entry.created_at.strftime("%d.%m.%Y %H:%M") %></td>
+              <td class="px-4 py-2 text-sm">
+                <% if entry.confirmed? %>
+                  <span class="inline-flex items-center px-2 py-0.5 rounded text-xs font-medium bg-green-100 text-green-800">Bestätigt</span>
+                <% else %>
+                  <span class="inline-flex items-center px-2 py-0.5 rounded text-xs font-medium bg-yellow-100 text-yellow-800">Ausstehend</span>
+                <% end %>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

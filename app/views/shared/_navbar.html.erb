@@ -1,0 +1,76 @@
+<header class="absolute inset-x-0 top-0 z-50">
+  <nav class="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8" aria-label="Global">
+    <!-- Logo -->
+    <div class="flex lg:flex-1">
+      <a href="/" class="-m-1.5 p-1.5">
+        <%= render "shared/company_logo" %>
+      </a>
+    </div>
+
+    <!-- Mobile menu button -->
+    <div class="flex lg:hidden">
+      <button
+        type="button"
+        command="show-modal"
+        commandfor="mobile-menu-dialog"
+        class="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700"
+      >
+        <span class="sr-only">Menü öffnen</span>
+        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+        </svg>
+      </button>
+    </div>
+
+    <!-- Desktop navigation -->
+    <div class="hidden lg:flex lg:gap-x-12">
+      <a href="#features" class="text-sm/6 font-semibold text-gray-900">Funktionen</a>
+      <a href="#industries" class="text-sm/6 font-semibold text-gray-900">Branchen</a>
+      <a href="#pricing" class="text-sm/6 font-semibold text-gray-900">Preise</a>
+    </div>
+
+    <!-- Desktop CTA -->
+    <div class="hidden lg:flex lg:flex-1 lg:justify-end">
+      <a href="#waitlist-form" class="rounded-md bg-emerald-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-emerald-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-600">
+        Auf Warteliste setzen
+      </a>
+    </div>
+  </nav>
+
+  <!-- Mobile menu dialog using @tailwindplus/elements -->
+  <el-dialog>
+    <dialog id="mobile-menu-dialog" class="lg:hidden backdrop:bg-transparent m-0 p-0">
+      <el-dialog-backdrop class="fixed inset-0 bg-gray-900/80 transition-opacity data-closed:opacity-0 data-enter:duration-300 data-enter:ease-out data-leave:duration-200 data-leave:ease-in"></el-dialog-backdrop>
+
+      <div tabindex="0" class="fixed inset-0 z-50 focus:outline-none">
+        <el-dialog-panel class="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10 transition-transform data-closed:translate-x-full data-enter:duration-300 data-enter:ease-out data-leave:duration-200 data-leave:ease-in">
+          <div class="flex items-center justify-between">
+            <a href="/" class="-m-1.5 p-1.5">
+              <%= render "shared/company_logo" %>
+            </a>
+            <button type="button" command="close" commandfor="mobile-menu-dialog" class="-m-2.5 rounded-md p-2.5 text-gray-700">
+              <span class="sr-only">Menü schließen</span>
+              <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            </button>
+          </div>
+          <div class="mt-6 flow-root">
+            <div class="-my-6 divide-y divide-gray-500/10">
+              <div class="space-y-2 py-6">
+                <a href="#features" class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900 hover:bg-gray-50">Funktionen</a>
+                <a href="#industries" class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900 hover:bg-gray-50">Branchen</a>
+                <a href="#pricing" class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900 hover:bg-gray-50">Preise</a>
+              </div>
+              <div class="py-6">
+                <a href="#waitlist-form" class="block rounded-md bg-emerald-600 px-3.5 py-2.5 text-center text-base font-semibold text-white shadow-sm hover:bg-emerald-500">
+                  Auf Warteliste setzen
+                </a>
+              </div>
+            </div>
+          </div>
+        </el-dialog-panel>
+      </div>
+    </dialog>
+  </el-dialog>
+</header>

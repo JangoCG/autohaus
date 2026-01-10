@@ -1,0 +1,24 @@
+<% content_for(:title) { "Ungültiger Link - GoAuftrag" } %>
+
+<div class="bg-white min-h-screen flex flex-col">
+  <%= render "shared/navbar" %>
+
+  <div class="relative isolate px-6 pt-24 pb-16 sm:pt-32 sm:pb-24 lg:px-8 flex-grow flex items-center">
+    <div class="mx-auto max-w-2xl text-center">
+      <div class="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-red-100">
+        <svg class="h-8 w-8 text-red-600" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m9-.75a9 9 0 11-18 0 9 9 0 0118 0zm-9 3.75h.008v.008H12v-.008z" />
+        </svg>
+      </div>
+      <h1 class="mt-6 text-4xl font-semibold tracking-tight text-gray-900 sm:text-5xl">Ungültiger Link</h1>
+      <p class="mt-6 text-lg text-gray-600">
+        Dieser Bestätigungs-Link ist ungültig. Bitte melden Sie sich erneut an.
+      </p>
+      <div class="mt-10">
+        <%= link_to "Zurück zur Startseite", root_path, class: "rounded-md bg-emerald-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-emerald-500" %>
+      </div>
+    </div>
+  </div>
+
+  <%= render "shared/footer" %>
+</div>

@@ -1,4 +1,4 @@
-<header class="absolute inset-x-0 top-0 z-50">
+<header class="sticky top-0 z-50 bg-gray-900">
   <nav class="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8" aria-label="Global">
     <!-- Logo -->
     <div class="flex lg:flex-1">
@@ -13,9 +13,9 @@
         type="button"
         command="show-modal"
         commandfor="mobile-menu-dialog"
-        class="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700"
+        class="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-400 hover:text-white"
       >
-        <span class="sr-only">Menü öffnen</span>
+        <span class="sr-only">Menu</span>
         <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
           <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
         </svg>
@@ -24,15 +24,24 @@
 
     <!-- Desktop navigation -->
     <div class="hidden lg:flex lg:gap-x-12">
-      <a href="#features" class="text-sm/6 font-semibold text-gray-900">Funktionen</a>
-      <a href="#industries" class="text-sm/6 font-semibold text-gray-900">Branchen</a>
-      <a href="#pricing" class="text-sm/6 font-semibold text-gray-900">Preise</a>
+      <a href="#" class="text-sm/6 font-semibold text-white hover:text-sky-400 transition-colors">Startseite</a>
+      <a href="#fahrzeuge" class="text-sm/6 font-semibold text-gray-300 hover:text-sky-400 transition-colors">Fahrzeuge</a>
+      <a href="#leistungen" class="text-sm/6 font-semibold text-gray-300 hover:text-sky-400 transition-colors">Leistungen</a>
+      <a href="#kontakt" class="text-sm/6 font-semibold text-gray-300 hover:text-sky-400 transition-colors">Kontakt</a>
     </div>
 
     <!-- Desktop CTA -->
-    <div class="hidden lg:flex lg:flex-1 lg:justify-end">
-      <a href="#waitlist-form" class="rounded-md bg-emerald-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-emerald-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-600">
-        Auf Warteliste setzen
+    <div class="hidden lg:flex lg:flex-1 lg:justify-end lg:gap-x-4">
+      <!-- Merkliste button -->
+      <a href="#" class="flex items-center gap-x-2 rounded-md px-3 py-2 text-sm font-semibold text-gray-300 hover:text-white transition-colors">
+        <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12Z" />
+        </svg>
+        Merkliste
+      </a>
+      <!-- Kontakt button -->
+      <a href="#kontakt" class="rounded-md bg-sky-500 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-sky-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-500 transition-colors">
+        Kontakt
       </a>
     </div>
   </nav>
@@ -43,28 +52,35 @@
       <el-dialog-backdrop class="fixed inset-0 bg-gray-900/80 transition-opacity data-closed:opacity-0 data-enter:duration-300 data-enter:ease-out data-leave:duration-200 data-leave:ease-in"></el-dialog-backdrop>
 
       <div tabindex="0" class="fixed inset-0 z-50 focus:outline-none">
-        <el-dialog-panel class="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10 transition-transform data-closed:translate-x-full data-enter:duration-300 data-enter:ease-out data-leave:duration-200 data-leave:ease-in">
+        <el-dialog-panel class="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-gray-900 px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-white/10 transition-transform data-closed:translate-x-full data-enter:duration-300 data-enter:ease-out data-leave:duration-200 data-leave:ease-in">
           <div class="flex items-center justify-between">
             <a href="/" class="-m-1.5 p-1.5">
               <%= render "shared/company_logo" %>
             </a>
-            <button type="button" command="close" commandfor="mobile-menu-dialog" class="-m-2.5 rounded-md p-2.5 text-gray-700">
-              <span class="sr-only">Menü schließen</span>
+            <button type="button" command="close" commandfor="mobile-menu-dialog" class="-m-2.5 rounded-md p-2.5 text-gray-400 hover:text-white">
+              <span class="sr-only">Menu schliessen</span>
               <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
               </svg>
             </button>
           </div>
           <div class="mt-6 flow-root">
-            <div class="-my-6 divide-y divide-gray-500/10">
+            <div class="-my-6 divide-y divide-gray-500/25">
               <div class="space-y-2 py-6">
-                <a href="#features" class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900 hover:bg-gray-50">Funktionen</a>
-                <a href="#industries" class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900 hover:bg-gray-50">Branchen</a>
-                <a href="#pricing" class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900 hover:bg-gray-50">Preise</a>
+                <a href="#" class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-white hover:bg-gray-800">Startseite</a>
+                <a href="#fahrzeuge" class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-300 hover:bg-gray-800 hover:text-white">Fahrzeuge</a>
+                <a href="#leistungen" class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-300 hover:bg-gray-800 hover:text-white">Leistungen</a>
+                <a href="#kontakt" class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-300 hover:bg-gray-800 hover:text-white">Kontakt</a>
               </div>
-              <div class="py-6">
-                <a href="#waitlist-form" class="block rounded-md bg-emerald-600 px-3.5 py-2.5 text-center text-base font-semibold text-white shadow-sm hover:bg-emerald-500">
-                  Auf Warteliste setzen
+              <div class="py-6 space-y-4">
+                <a href="#" class="flex items-center gap-x-2 -mx-3 rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-300 hover:bg-gray-800 hover:text-white">
+                  <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12Z" />
+                  </svg>
+                  Merkliste
+                </a>
+                <a href="#kontakt" class="block rounded-md bg-sky-500 px-3.5 py-2.5 text-center text-base font-semibold text-white shadow-sm hover:bg-sky-400">
+                  Kontakt
                 </a>
               </div>
             </div>

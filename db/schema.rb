@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.1].define(version: 2026_01_05_204642) do
+ActiveRecord::Schema[8.1].define(version: 2026_01_10_122206) do
   create_table "confirmation_tokens", force: :cascade do |t|
     t.string "code", null: false
     t.datetime "created_at", null: false
@@ -38,6 +38,26 @@ ActiveRecord::Schema[8.1].define(version: 2026_01_05_204642) do
     t.string "password_digest", null: false
     t.datetime "updated_at", null: false
     t.index ["email_address"], name: "index_users_on_email_address", unique: true
+  end
+
+  create_table "vehicles", force: :cascade do |t|
+    t.string "badge"
+    t.string "badge_color"
+    t.string "brand"
+    t.datetime "created_at", null: false
+    t.string "fuel_type"
+    t.integer "horsepower"
+    t.string "image"
+    t.integer "kilowatts"
+    t.integer "mileage"
+    t.string "vehicle_model"
+    t.integer "monthly_rate"
+    t.integer "price"
+    t.string "transmission"
+    t.datetime "updated_at", null: false
+    t.string "variant"
+    t.boolean "vat_reclaimable"
+    t.integer "year"
   end
 
   create_table "waitlist_entries", force: :cascade do |t|

@@ -1,9 +1,223 @@
 # This file should ensure the existence of records required to run the application in every environment (production,
 # development, test). The code here should be idempotent so that it can be executed at any point in every environment.
 # The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
-#
-# Example:
-#
-#   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
-#     MovieGenre.find_or_create_by!(name: genre_name)
-#   end
+
+# Vehicles
+vehicles = [
+  {
+    brand: "BMW",
+    vehicle_model: "X3",
+    variant: "xDrive 20d M-Sportpaket LED Navi",
+    price: 31980,
+    year: 2018,
+    fuel_type: "Diesel",
+    transmission: "Automatik",
+    mileage: 67105,
+    horsepower: 190,
+    kilowatts: 140,
+    image: "listing-bmw-x3-blue.png",
+    badge: "GEBRAUCHTWAGEN",
+    badge_color: "gray-900",
+    monthly_rate: 480,
+    vat_reclaimable: false
+  },
+  {
+    brand: "Mercedes-Benz",
+    vehicle_model: "C-Klasse",
+    variant: "C 220 d AMG Line Panorama LED Navi",
+    price: 38990,
+    year: 2021,
+    fuel_type: "Diesel",
+    transmission: "Automatik",
+    mileage: 45230,
+    horsepower: 194,
+    kilowatts: 143,
+    image: "listing-mercedes-c-silver.png",
+    badge: "GEBRAUCHTWAGEN",
+    badge_color: "gray-900",
+    monthly_rate: 590,
+    vat_reclaimable: false
+  },
+  {
+    brand: "Audi",
+    vehicle_model: "A4",
+    variant: "Avant 40 TDI quattro S-Line Black Edition",
+    price: 34450,
+    year: 2020,
+    fuel_type: "Diesel",
+    transmission: "Automatik",
+    mileage: 78450,
+    horsepower: 204,
+    kilowatts: 150,
+    image: "listing-audi-a4-black.png",
+    badge: "GEBRAUCHTWAGEN",
+    badge_color: "gray-900",
+    monthly_rate: 520,
+    vat_reclaimable: false
+  },
+  {
+    brand: "Volkswagen",
+    vehicle_model: "Golf",
+    variant: "GTI 2.0 TSI DSG Panorama LED ACC",
+    price: 41280,
+    year: 2022,
+    fuel_type: "Benzin",
+    transmission: "Automatik",
+    mileage: 28900,
+    horsepower: 245,
+    kilowatts: 180,
+    image: "listing-vw-golf-gti-red.png",
+    badge: "NEU EINGETROFFEN",
+    badge_color: "sky-500",
+    monthly_rate: 620,
+    vat_reclaimable: false
+  },
+  {
+    brand: "Renault",
+    vehicle_model: "Twingo",
+    variant: "Expression Klima Bluetooth ZV",
+    price: 8680,
+    year: 2019,
+    fuel_type: "Benzin",
+    transmission: "Schaltgetriebe",
+    mileage: 19630,
+    horsepower: 71,
+    kilowatts: 52,
+    image: "car-renault-twingo.png",
+    badge: "GEBRAUCHTWAGEN",
+    badge_color: "gray-900",
+    monthly_rate: 130,
+    vat_reclaimable: false
+  },
+  {
+    brand: "Porsche",
+    vehicle_model: "Cayenne",
+    variant: "E-Hybrid Platinum Edition Luftfederung",
+    price: 125900,
+    year: 2023,
+    fuel_type: "Hybrid",
+    transmission: "Automatik",
+    mileage: 12450,
+    horsepower: 462,
+    kilowatts: 340,
+    image: "hero-suv.png",
+    badge: "TOP ANGEBOT",
+    badge_color: "orange-500",
+    monthly_rate: 1890,
+    vat_reclaimable: true
+  },
+  {
+    brand: "Audi",
+    vehicle_model: "A1",
+    variant: "Sportback 30 TFSI S-tronic S-Line",
+    price: 19880,
+    year: 2020,
+    fuel_type: "Benzin",
+    transmission: "Automatik",
+    mileage: 89205,
+    horsepower: 116,
+    kilowatts: 85,
+    image: "car-audi-a1.png",
+    badge: "GEBRAUCHTWAGEN",
+    badge_color: "gray-900",
+    monthly_rate: 298,
+    vat_reclaimable: false
+  },
+  {
+    brand: "Skoda",
+    vehicle_model: "Fabia",
+    variant: "Combi Style Plus TSI DSG",
+    price: 9480,
+    year: 2017,
+    fuel_type: "Benzin",
+    transmission: "Schaltgetriebe",
+    mileage: 75545,
+    horsepower: 60,
+    kilowatts: 44,
+    image: "car-skoda-fabia.png",
+    badge: "GEBRAUCHTWAGEN",
+    badge_color: "gray-900",
+    monthly_rate: 142,
+    vat_reclaimable: false
+  },
+  {
+    brand: "Tesla",
+    vehicle_model: "Model 3",
+    variant: "Long Range AWD Autopilot Premium",
+    price: 44990,
+    year: 2023,
+    fuel_type: "Elektro",
+    transmission: "Automatik",
+    mileage: 18320,
+    horsepower: 440,
+    kilowatts: 324,
+    image: "listing-mercedes-c-silver.png",
+    badge: "ELEKTRO",
+    badge_color: "green-600",
+    monthly_rate: 680,
+    vat_reclaimable: true
+  },
+  {
+    brand: "BMW",
+    vehicle_model: "3er",
+    variant: "320i M Sport Steptronic LED Navi HUD",
+    price: 33890,
+    year: 2021,
+    fuel_type: "Benzin",
+    transmission: "Automatik",
+    mileage: 52780,
+    horsepower: 184,
+    kilowatts: 135,
+    image: "car-bmw-x3.png",
+    badge: "GEBRAUCHTWAGEN",
+    badge_color: "gray-900",
+    monthly_rate: 510,
+    vat_reclaimable: false
+  },
+  {
+    brand: "Mercedes-Benz",
+    vehicle_model: "GLC",
+    variant: "300 4MATIC AMG Line Night Paket",
+    price: 49780,
+    year: 2022,
+    fuel_type: "Benzin",
+    transmission: "Automatik",
+    mileage: 38650,
+    horsepower: 258,
+    kilowatts: 190,
+    image: "listing-mercedes-c-silver.png",
+    badge: "GEBRAUCHTWAGEN",
+    badge_color: "gray-900",
+    monthly_rate: 750,
+    vat_reclaimable: false
+  },
+  {
+    brand: "Volkswagen",
+    vehicle_model: "Passat",
+    variant: "Variant 2.0 TDI DSG Business LED AHK",
+    price: 24980,
+    year: 2020,
+    fuel_type: "Diesel",
+    transmission: "Automatik",
+    mileage: 95230,
+    horsepower: 150,
+    kilowatts: 110,
+    image: "listing-vw-golf-gti-red.png",
+    badge: "GEBRAUCHTWAGEN",
+    badge_color: "gray-900",
+    monthly_rate: 380,
+    vat_reclaimable: false
+  }
+]
+
+vehicles.each do |vehicle_data|
+  Vehicle.find_or_create_by!(
+    brand: vehicle_data[:brand],
+    vehicle_model: vehicle_data[:vehicle_model],
+    variant: vehicle_data[:variant]
+  ) do |vehicle|
+    vehicle.assign_attributes(vehicle_data)
+  end
+end
+
+puts "Created #{Vehicle.count} vehicles"

@@ -22,47 +22,78 @@
       <!-- Hero content -->
       <div class="relative h-full flex items-end">
         <div class="mx-auto max-w-7xl px-6 pb-24 lg:px-8 w-full">
-          <!-- Search/Filter Bar -->
-          <div class="bg-gray-800/90 backdrop-blur-sm rounded-xl p-6 shadow-2xl ring-1 ring-white/10">
-            <div class="flex items-center gap-4 mb-4">
-              <svg class="h-6 w-6 text-sky-400" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
-              </svg>
-              <span class="text-white font-semibold">Schnellsuche</span>
-            </div>
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-              <div>
-                <label for="marke" class="sr-only">Marke</label>
-                <select id="marke" name="marke" class="block w-full rounded-md bg-gray-700 border-0 py-3 px-4 text-white ring-1 ring-inset ring-gray-600 focus:ring-2 focus:ring-sky-500">
-                  <option value="">Alle Marken</option>
-                  <option>BMW</option>
-                  <option>Audi</option>
-                  <option>Mercedes-Benz</option>
-                  <option>Volkswagen</option>
-                  <option>Porsche</option>
-                </select>
+          <div class="bg-white/5 backdrop-blur-xl rounded-2xl p-8 shadow-2xl border border-white/10 relative overflow-hidden">
+            <!-- Decorative blur glow -->
+            <div class="absolute -top-10 -right-10 w-32 h-32 bg-sky-500/20 rounded-full blur-3xl pointer-events-none"></div>
+            <div class="absolute -bottom-10 -left-10 w-32 h-32 bg-blue-600/20 rounded-full blur-3xl pointer-events-none"></div>
+
+            <div class="relative">
+              <div class="flex items-center gap-3 mb-6">
+                 <!-- Icon & Title -->
+                 <div class="p-2 bg-sky-500/10 rounded-lg">
+                    <svg class="h-6 w-6 text-sky-400" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
+                    </svg>
+                 </div>
+                 <h2 class="text-xl font-bold text-white tracking-tight">Fahrzeug finden</h2>
               </div>
-              <div>
-                <label for="modell" class="sr-only">Modell</label>
-                <select id="modell" name="modell" class="block w-full rounded-md bg-gray-700 border-0 py-3 px-4 text-white ring-1 ring-inset ring-gray-600 focus:ring-2 focus:ring-sky-500">
-                  <option value="">Alle Modelle</option>
-                </select>
-              </div>
-              <div>
-                <label for="preis" class="sr-only">Preis bis</label>
-                <select id="preis" name="preis" class="block w-full rounded-md bg-gray-700 border-0 py-3 px-4 text-white ring-1 ring-inset ring-gray-600 focus:ring-2 focus:ring-sky-500">
-                  <option value="">Preis bis</option>
-                  <option>10.000 EUR</option>
-                  <option>20.000 EUR</option>
-                  <option>30.000 EUR</option>
-                  <option>50.000 EUR</option>
-                  <option>100.000 EUR</option>
-                </select>
-              </div>
-              <div>
-                <button type="button" class="w-full rounded-md bg-sky-500 px-4 py-3 text-sm font-semibold text-white shadow-sm hover:bg-sky-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-500 transition-colors">
-                  30 Treffer anzeigen
-                </button>
+
+              <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+                <!-- Marke -->
+                <div class="group">
+                  <label for="marke" class="block text-xs font-medium text-gray-400 uppercase tracking-wider mb-1.5 ml-1">Marke</label>
+                  <div class="relative">
+                    <select id="marke" name="marke" class="block w-full rounded-xl bg-black/20 border border-white/10 py-3.5 px-4 text-white placeholder-gray-400 focus:border-sky-500 focus:ring-1 focus:ring-sky-500 focus:outline-none focus:bg-black/30 transition-all appearance-none cursor-pointer">
+                      <option value="" class="bg-gray-900 text-white">Alle Marken</option>
+                      <option class="bg-gray-900 text-white">BMW</option>
+                      <option class="bg-gray-900 text-white">Audi</option>
+                      <option class="bg-gray-900 text-white">Mercedes-Benz</option>
+                      <option class="bg-gray-900 text-white">Volkswagen</option>
+                      <option class="bg-gray-900 text-white">Porsche</option>
+                    </select>
+                    <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-4 text-gray-400">
+                      <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" /></svg>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Modell -->
+                <div class="group">
+                  <label for="modell" class="block text-xs font-medium text-gray-400 uppercase tracking-wider mb-1.5 ml-1">Modell</label>
+                  <div class="relative">
+                    <select id="modell" name="modell" class="block w-full rounded-xl bg-black/20 border border-white/10 py-3.5 px-4 text-white placeholder-gray-400 focus:border-sky-500 focus:ring-1 focus:ring-sky-500 focus:outline-none focus:bg-black/30 transition-all appearance-none cursor-pointer">
+                      <option value="" class="bg-gray-900 text-white">Alle Modelle</option>
+                    </select>
+                    <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-4 text-gray-400">
+                      <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" /></svg>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Preis -->
+                <div class="group">
+                  <label for="preis" class="block text-xs font-medium text-gray-400 uppercase tracking-wider mb-1.5 ml-1">Preis bis</label>
+                  <div class="relative">
+                    <select id="preis" name="preis" class="block w-full rounded-xl bg-black/20 border border-white/10 py-3.5 px-4 text-white placeholder-gray-400 focus:border-sky-500 focus:ring-1 focus:ring-sky-500 focus:outline-none focus:bg-black/30 transition-all appearance-none cursor-pointer">
+                      <option value="" class="bg-gray-900 text-white">Beliebig</option>
+                      <option class="bg-gray-900 text-white">10.000 EUR</option>
+                      <option class="bg-gray-900 text-white">20.000 EUR</option>
+                      <option class="bg-gray-900 text-white">30.000 EUR</option>
+                      <option class="bg-gray-900 text-white">50.000 EUR</option>
+                      <option class="bg-gray-900 text-white">100.000 EUR</option>
+                    </select>
+                    <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-4 text-gray-400">
+                      <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" /></svg>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Button -->
+                <div class="flex items-end">
+                  <button type="submit" class="w-full rounded-xl bg-gradient-to-r from-sky-500 to-blue-600 px-6 py-3.5 text-sm font-bold text-white shadow-lg shadow-sky-500/20 hover:from-sky-400 hover:to-blue-500 hover:shadow-sky-500/30 hover:-translate-y-0.5 transition-all duration-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-500">
+                    30 Treffer anzeigen
+                  </button>
+                </div>
               </div>
             </div>
           </div>
@@ -72,208 +103,63 @@
   </section>
 
   <!-- Aktuelle Angebote (Featured Cars) Section -->
-  <section id="fahrzeuge" class="bg-white py-24 sm:py-32">
-    <div class="mx-auto max-w-7xl px-6 lg:px-8">
-      <div class="mx-auto max-w-2xl lg:mx-0 mb-16">
+  <section id="fahrzeuge" class="bg-white py-24 sm:py-32 overflow-hidden">
+    <div class="mx-auto max-w-7xl px-6 lg:px-8 mb-16">
+      <div class="mx-auto max-w-2xl lg:mx-0">
         <h2 class="text-4xl font-semibold tracking-tight text-gray-900 sm:text-5xl">Aktuelle Angebote</h2>
         <p class="mt-4 text-lg text-gray-600">Entdecken Sie unsere handverlesene Auswahl an Qualitatsfahrzeugen.</p>
       </div>
+    </div>
 
-      <!-- Car Cards Grid -->
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-        <!-- Car Card 1: BMW X3 -->
-        <div class="group bg-white rounded-2xl shadow-lg ring-1 ring-gray-200 overflow-hidden hover:shadow-xl transition-shadow">
-          <div class="aspect-[4/3] relative overflow-hidden bg-gray-100">
-            <%= image_tag "car-bmw-x3.png", class: "w-full h-full object-cover group-hover:scale-105 transition-transform duration-500", alt: "BMW X3" %>
-            <!-- Tag -->
-            <span class="absolute top-3 left-3 bg-gray-900 text-white text-xs font-medium px-2.5 py-1 rounded">GEBRAUCHTWAGEN</span>
-          </div>
-          <div class="p-5">
-            <h3 class="text-lg font-semibold text-gray-900">BMW X3</h3>
-            <p class="text-sm text-gray-500 mt-1 line-clamp-1">xDrive 20d M-Sportpaket LED Navi</p>
+    <% if @featured_vehicles.any? %>
+      <!-- Marquee Car Cards -->
+      <div data-controller="marquee" data-marquee-speed-value="0.5" data-marquee-pause-on-hover-value="true" class="relative">
+        <!-- Fade edges -->
+        <div class="absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-white to-transparent z-10 pointer-events-none"></div>
+        <div class="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-white to-transparent z-10 pointer-events-none"></div>
 
-            <!-- Specs -->
-            <div class="mt-4 flex flex-wrap gap-3 text-xs text-gray-600">
-              <span class="flex items-center gap-1">
-                <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z" />
-                </svg>
-                140 kW (190 PS)
-              </span>
-              <span class="flex items-center gap-1">
-                <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v2.25m6.364.386l-1.591 1.591M21 12h-2.25m-.386 6.364l-1.591-1.591M12 18.75V21m-4.773-4.227l-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0z" />
-                </svg>
-                Diesel
-              </span>
+        <div data-marquee-target="track" class="flex gap-6 py-4">
+          <% @featured_vehicles.each do |vehicle| %>
+            <div class="flex-shrink-0 w-80">
+              <%= render "pages/vehicle_card", vehicle: vehicle %>
             </div>
-            <div class="mt-2 flex flex-wrap gap-3 text-xs text-gray-600">
-              <span>Automatik</span>
-              <span>09/2018</span>
-              <span>67.105 km</span>
-            </div>
-
-            <!-- Price -->
-            <div class="mt-5 pt-4 border-t border-gray-100">
-              <div class="flex items-center justify-between">
-                <div>
-                  <a href="#" class="text-sky-500 text-sm font-medium hover:text-sky-600">ab 480 EUR/mtl.</a>
-                  <p class="text-xs text-gray-500">FINANZIEREN</p>
-                </div>
-                <div class="text-right">
-                  <p class="text-xl font-bold text-gray-900">31.980,- EUR</p>
-                  <p class="text-xs text-gray-500">MwSt. nicht ausweisbar</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Car Card 2: Renault Twingo -->
-        <div class="group bg-white rounded-2xl shadow-lg ring-1 ring-gray-200 overflow-hidden hover:shadow-xl transition-shadow">
-          <div class="aspect-[4/3] relative overflow-hidden bg-gray-100">
-            <%= image_tag "car-renault-twingo.png", class: "w-full h-full object-cover group-hover:scale-105 transition-transform duration-500", alt: "Renault Twingo" %>
-            <span class="absolute top-3 left-3 bg-gray-900 text-white text-xs font-medium px-2.5 py-1 rounded">GEBRAUCHTWAGEN</span>
-          </div>
-          <div class="p-5">
-            <h3 class="text-lg font-semibold text-gray-900">Renault Twingo</h3>
-            <p class="text-sm text-gray-500 mt-1 line-clamp-1">Expression Klima Bluetooth ZV</p>
-
-            <div class="mt-4 flex flex-wrap gap-3 text-xs text-gray-600">
-              <span class="flex items-center gap-1">
-                <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z" />
-                </svg>
-                52 kW (71 PS)
-              </span>
-              <span class="flex items-center gap-1">
-                <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v2.25m6.364.386l-1.591 1.591M21 12h-2.25m-.386 6.364l-1.591-1.591M12 18.75V21m-4.773-4.227l-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0z" />
-                </svg>
-                Benzin
-              </span>
-            </div>
-            <div class="mt-2 flex flex-wrap gap-3 text-xs text-gray-600">
-              <span>Schaltgetriebe</span>
-              <span>08/2019</span>
-              <span>19.630 km</span>
-            </div>
-
-            <div class="mt-5 pt-4 border-t border-gray-100">
-              <div class="flex items-center justify-between">
-                <div>
-                  <a href="#" class="text-sky-500 text-sm font-medium hover:text-sky-600">ab 130 EUR/mtl.</a>
-                  <p class="text-xs text-gray-500">FINANZIEREN</p>
-                </div>
-                <div class="text-right">
-                  <p class="text-xl font-bold text-gray-900">8.680,- EUR</p>
-                  <p class="text-xs text-gray-500">MwSt. nicht ausweisbar</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Car Card 3: Audi A1 -->
-        <div class="group bg-white rounded-2xl shadow-lg ring-1 ring-gray-200 overflow-hidden hover:shadow-xl transition-shadow">
-          <div class="aspect-[4/3] relative overflow-hidden bg-gray-100">
-            <%= image_tag "car-audi-a1.png", class: "w-full h-full object-cover group-hover:scale-105 transition-transform duration-500", alt: "Audi A1" %>
-            <span class="absolute top-3 left-3 bg-gray-900 text-white text-xs font-medium px-2.5 py-1 rounded">GEBRAUCHTWAGEN</span>
-          </div>
-          <div class="p-5">
-            <h3 class="text-lg font-semibold text-gray-900">Audi A1</h3>
-            <p class="text-sm text-gray-500 mt-1 line-clamp-1">Sportback 30 TFSI S-tronic S-Line</p>
-
-            <div class="mt-4 flex flex-wrap gap-3 text-xs text-gray-600">
-              <span class="flex items-center gap-1">
-                <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z" />
-                </svg>
-                85 kW (116 PS)
-              </span>
-              <span class="flex items-center gap-1">
-                <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v2.25m6.364.386l-1.591 1.591M21 12h-2.25m-.386 6.364l-1.591-1.591M12 18.75V21m-4.773-4.227l-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0z" />
-                </svg>
-                Benzin
-              </span>
-            </div>
-            <div class="mt-2 flex flex-wrap gap-3 text-xs text-gray-600">
-              <span>Automatik</span>
-              <span>09/2020</span>
-              <span>89.205 km</span>
-            </div>
-
-            <div class="mt-5 pt-4 border-t border-gray-100">
-              <div class="flex items-center justify-between">
-                <div>
-                  <a href="#" class="text-sky-500 text-sm font-medium hover:text-sky-600">ab 298 EUR/mtl.</a>
-                  <p class="text-xs text-gray-500">FINANZIEREN</p>
-                </div>
-                <div class="text-right">
-                  <p class="text-xl font-bold text-gray-900">19.880,- EUR</p>
-                  <p class="text-xs text-gray-500">MwSt. nicht ausweisbar</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Car Card 4: Skoda Fabia -->
-        <div class="group bg-white rounded-2xl shadow-lg ring-1 ring-gray-200 overflow-hidden hover:shadow-xl transition-shadow">
-          <div class="aspect-[4/3] relative overflow-hidden bg-gray-100">
-            <%= image_tag "car-skoda-fabia.png", class: "w-full h-full object-cover group-hover:scale-105 transition-transform duration-500", alt: "Skoda Fabia" %>
-            <span class="absolute top-3 left-3 bg-gray-900 text-white text-xs font-medium px-2.5 py-1 rounded">GEBRAUCHTWAGEN</span>
-          </div>
-          <div class="p-5">
-            <h3 class="text-lg font-semibold text-gray-900">Skoda Fabia</h3>
-            <p class="text-sm text-gray-500 mt-1 line-clamp-1">Combi Style Plus TSI DSG</p>
-
-            <div class="mt-4 flex flex-wrap gap-3 text-xs text-gray-600">
-              <span class="flex items-center gap-1">
-                <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z" />
-                </svg>
-                44 kW (60 PS)
-              </span>
-              <span class="flex items-center gap-1">
-                <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v2.25m6.364.386l-1.591 1.591M21 12h-2.25m-.386 6.364l-1.591-1.591M12 18.75V21m-4.773-4.227l-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0z" />
-                </svg>
-                Benzin
-              </span>
-            </div>
-            <div class="mt-2 flex flex-wrap gap-3 text-xs text-gray-600">
-              <span>Schaltgetriebe</span>
-              <span>05/2017</span>
-              <span>75.545 km</span>
-            </div>
-
-            <div class="mt-5 pt-4 border-t border-gray-100">
-              <div class="flex items-center justify-between">
-                <div>
-                  <a href="#" class="text-sky-500 text-sm font-medium hover:text-sky-600">ab 142 EUR/mtl.</a>
-                  <p class="text-xs text-gray-500">FINANZIEREN</p>
-                </div>
-                <div class="text-right">
-                  <p class="text-xl font-bold text-gray-900">9.480,- EUR</p>
-                  <p class="text-xs text-gray-500">MwSt. nicht ausweisbar</p>
-                </div>
-              </div>
-            </div>
-          </div>
+          <% end %>
         </div>
       </div>
-
-      <!-- View All Button -->
-      <div class="mt-12 text-center">
-        <a href="/fahrzeuge" class="inline-flex items-center gap-2 rounded-md bg-gray-900 px-6 py-3 text-sm font-semibold text-white shadow-sm hover:bg-gray-700 transition-colors">
-          Alle Fahrzeuge anzeigen
-          <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
-          </svg>
-        </a>
+    <% else %>
+      <div class="mx-auto max-w-7xl px-6 lg:px-8">
+        <p class="text-center text-gray-500">Derzeit keine Fahrzeuge verfugbar.</p>
       </div>
+    <% end %>
+
+    <!-- View All Button -->
+    <div class="mt-12 text-center">
+      <a href="/fahrzeuge" class="inline-flex items-center gap-2 rounded-md bg-gray-900 px-6 py-3 text-sm font-semibold text-white shadow-sm hover:bg-gray-700 transition-colors">
+        Alle Fahrzeuge anzeigen
+        <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+        </svg>
+      </a>
+    </div>
+  </section>
+
+  <!-- Termin Buchen Section -->
+  <section id="termin" class="py-16 sm:py-20" style="background-color: #0f0f0f;">
+    <div class="mx-auto max-w-7xl px-6 lg:px-8">
+      <div class="mx-auto max-w-2xl text-center mb-10">
+        <h2 class="text-3xl font-semibold tracking-tight text-white sm:text-4xl">Termin vereinbaren</h2>
+        <p class="mt-3 text-base text-gray-400">Buchen Sie einen Beratungstermin - wir nehmen uns Zeit fur Sie.</p>
+      </div>
+      <!-- Cal.com inline embed - full width, no border -->
+      <div id="my-cal-inline" style="width:100%;min-height:500px;"></div>
+      <script type="text/javascript">
+        Cal("inline", {
+          elementOrSelector:"#my-cal-inline",
+          calLink: "cengiz-gurtusgil-kcdfqm/30min",
+          layout: "month_view",
+          config: {"layout":"month_view","theme":"dark"}
+        });
+      </script>
     </div>
   </section>
 
@@ -408,26 +294,6 @@
           <p class="text-sm/6 text-gray-600">Buchhaltung</p>
         </li>
       </ul>
-    </div>
-  </section>
-
-  <!-- Termin Buchen Section -->
-  <section id="termin" class="py-16 sm:py-20" style="background-color: #0f0f0f;">
-    <div class="mx-auto max-w-7xl px-6 lg:px-8">
-      <div class="mx-auto max-w-2xl text-center mb-10">
-        <h2 class="text-3xl font-semibold tracking-tight text-white sm:text-4xl">Termin vereinbaren</h2>
-        <p class="mt-3 text-base text-gray-400">Buchen Sie einen Beratungstermin - wir nehmen uns Zeit fur Sie.</p>
-      </div>
-      <!-- Cal.com inline embed - full width, no border -->
-      <div id="my-cal-inline" style="width:100%;min-height:500px;"></div>
-      <script type="text/javascript">
-        Cal("inline", {
-          elementOrSelector:"#my-cal-inline",
-          calLink: "cengiz-gurtusgil-kcdfqm/30min",
-          layout: "month_view",
-          config: {"layout":"month_view","theme":"dark"}
-        });
-      </script>
     </div>
   </section>
 

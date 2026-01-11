@@ -1,4 +1,4 @@
-<footer class="bg-gray-900">
+<footer class="bg-gray-900" data-controller="cookie-settings">
   <div class="mx-auto max-w-7xl px-6 py-16 sm:py-24 lg:px-8">
     <div class="grid grid-cols-1 md:grid-cols-3 gap-12 lg:gap-16">
       <!-- Left Column: Company Info -->
@@ -48,6 +48,9 @@
           <li>
             <%= link_to "Impressum", impressum_path, class: "text-sm text-gray-400 hover:text-sky-400 transition-colors" %>
           </li>
+          <li>
+            <a href="#" data-action="cookie-settings#open" class="text-sm text-gray-400 hover:text-sky-400 transition-colors">Cookies</a>
+          </li>
         </ul>
 
         <!-- Social Icons -->
@@ -78,4 +81,6 @@
       <p class="text-sm text-gray-500 text-center">2024 - GoAuftrag Autohaus GmbH. Alle Rechte vorbehalten.</p>
     </div>
   </div>
+
+  <%= render "shared/cookie_settings_modal" %>
 </footer>

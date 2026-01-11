@@ -1,0 +1,75 @@
+<%#
+  Cal.com Booking Section with GDPR-compliant Consent
+
+  Required locals:
+    - calcom_url: Full Cal.com embed URL
+
+  Optional locals:
+    - section_id: HTML id (default: "termin")
+    - title: Main headline
+    - subtitle: Secondary text
+    - email: Contact email for alternative booking
+    - iframe_height: Height of iframe (default: 500)
+%>
+
+<%
+  section_id ||= "termin"
+  title ||= "Termin vereinbaren"
+  subtitle ||= "Buchen Sie einen Beratungstermin - wir nehmen uns Zeit fur Sie."
+  email ||= nil
+  iframe_height ||= 500
+%>
+
+<section id="<%= section_id %>" class="py-16 sm:py-20" style="background-color: #0f0f0f;" data-controller="consent" data-consent-calcom-src-value="<%= calcom_url %>">
+  <div class="mx-auto max-w-7xl px-6 lg:px-8">
+    <div class="mx-auto max-w-2xl text-center mb-10">
+      <h2 class="text-3xl font-semibold tracking-tight text-white sm:text-4xl"><%= title %></h2>
+      <p class="mt-3 text-base text-gray-400"><%= subtitle %></p>
+      <% if email.present? %>
+        <p class="mt-2 text-sm text-gray-500">
+          Lieber per E-Mail? <%= mail_to email, class: "text-sky-400 hover:text-sky-300 underline underline-offset-2" %>
+        </p>
+      <% end %>
+    </div>
+
+    <div class="relative rounded-2xl overflow-hidden">
+      <!-- Cal.com iframe container -->
+      <div data-consent-target="content" class="transition-all duration-300">
+        <iframe
+          data-consent-target="calcomFrame"
+          src=""
+          width="100%"
+          height="<%= iframe_height %>"
+          frameborder="0"
+          class="w-full rounded-2xl"
+          allow="payment"
+        ></iframe>
+      </div>
+
+      <!-- Consent overlay -->
+      <div data-consent-target="overlay" class="absolute inset-0 flex items-center justify-center bg-gray-950/80 backdrop-blur-sm rounded-2xl">
+        <div class="max-w-sm p-6 text-center">
+          <div class="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-gray-800">
+            <svg class="h-6 w-6 text-sky-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+            </svg>
+          </div>
+          <h3 class="text-lg font-semibold text-white">Terminbuchung aktivieren</h3>
+          <p class="mt-2 text-sm text-gray-400">
+            Fur die Online-Terminbuchung nutzen wir Cal.com. Dabei werden Ihre Daten an Cal.com, Inc. in die USA ubertragen und Cookies gesetzt.
+          </p>
+          <p class="mt-2 text-sm text-gray-400">
+            Bitte lesen Sie unsere <%= link_to "Datenschutzerklarung", datenschutz_path, class: "text-sky-400 underline underline-offset-2 hover:text-sky-300", target: "_blank" %> bevor Sie zustimmen.
+          </p>
+          <button
+            type="button"
+            data-action="consent#accept"
+            class="mt-5 inline-flex items-center rounded-full bg-gradient-to-r from-sky-500 to-blue-600 px-5 py-2.5 text-sm font-semibold text-white shadow-lg shadow-sky-500/20 hover:from-sky-400 hover:to-blue-500 transition-all"
+          >
+            Zustimmen & Termine buchen
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

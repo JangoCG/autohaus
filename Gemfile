@@ -70,7 +70,7 @@ group :test do
   gem "capybara"
   gem "selenium-webdriver"
   # Pin minitest to compatible version (6.0.0+ has issues with Rails 8.1)
-  gem "minitest", "~> 5.25"
+  gem "minitest", "~> 6.0"
   # For assert_template in controller tests
   gem "rails-controller-testing"
 end
